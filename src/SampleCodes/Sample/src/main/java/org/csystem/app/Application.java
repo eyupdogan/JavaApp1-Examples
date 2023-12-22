@@ -17,3 +17,4 @@ class Application {
         Console.writeLine("Duration:%f seconds (nanoTime)", (nanoEnd - nanoStart) / 1_000_000_000.);
     }
 }
+
