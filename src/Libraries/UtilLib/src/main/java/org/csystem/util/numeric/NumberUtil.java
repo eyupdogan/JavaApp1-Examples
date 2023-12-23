@@ -131,7 +131,7 @@ public final class NumberUtil {
         var result = BigInteger.ONE;
         var nVal = BigInteger.valueOf(n);
 
-        for (var i = BigInteger.TWO; i.compareTo(nVal) <= 0; i = i.add(BigInteger.ONE))
+        for (var i = BigInteger.TWO; i.compareTo(nVal) <= 0; i = i.add(BigInteger.ONE) )
             result = result.multiply(i);
 
         return result;

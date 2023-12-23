@@ -1,23 +1,23 @@
 /*----------------------------------------------------------------------------------------------------------------------
-    var değişkenler virgül ile ayrılarak bildirilemez. Bu durumda ayrı ayrı bildirilmeleri gerekir
+    BigDecimal ve BigInteger sınıflarının bazı veri elemanları ile bazı değerler için yaratılmış nesnelerin referansları
+    elde edilebilir. Örneğin, ONE, TEN, ZERO veri elemanları her iki sınıfta da bulunmaktadır. BigInteger sınıfına
+    Java 9 ile birlikte TWO veri elemanı da eklenmiştir
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örneği inceleyiniz
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.karandev.io.util.console.Console;
+
+import java.math.BigInteger;
 
 class Application {
     public static void run(String[] args)
     {
-        var m = Sample.create();
-    }
-}
+        var count = Console.readBigInteger("Input count:");
 
-class Sample {
-    public static Map<String, ArrayList<String>> create()
-    {
-        // ...
-        return new HashMap<>();
+        for (var i = BigInteger.ZERO; i.compareTo(count) < 0; i = i.add(BigInteger.ONE))
+            Console.writeLine(i);
     }
 }
