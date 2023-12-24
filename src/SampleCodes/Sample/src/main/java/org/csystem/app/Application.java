@@ -10,14 +10,23 @@ package org.csystem.app;
 
 import com.karandev.io.util.console.Console;
 
-import java.math.BigInteger;
-
 class Application {
     public static void run(String[] args)
     {
-        var count = Console.readBigInteger("Input count:");
+        Sample.foo(3);
+    }
+}
 
-        for (var i = BigInteger.ZERO; i.compareTo(count) < 0; i = i.add(BigInteger.ONE))
-            Console.writeLine(i);
+
+class Sample {
+    public static void foo(int x)
+    {
+        Console.writeLine("Giriş:%d", x);
+
+        if (x == 0)
+            return; //**
+
+        foo(x - 1);
+        Console.writeLine("Çıkış:%d", x); //***
     }
 }
