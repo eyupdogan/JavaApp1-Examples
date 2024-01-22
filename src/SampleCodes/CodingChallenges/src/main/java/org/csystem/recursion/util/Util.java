@@ -25,4 +25,26 @@ public class Util {
 
         return 1;
     }
+
+    public static String reverse(String s)
+    {
+        var chars = s.toCharArray();
+
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right){
+            char temp = chars[left];
+
+            chars[left++] = chars[right];
+            chars[right--] = temp;
+        }
+        return String.valueOf(chars);
+    }
+
+    public static void writeReverse(String s)
+    {
+        for (int i = s.length() - 1; i >= 0; --i)
+            System.out.print(s.charAt(i));
+    }
+
 }
