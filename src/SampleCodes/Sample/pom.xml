@@ -9,25 +9,15 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.5</version>
         <relativePath/> <!-- lookup parent from repository -->
+
     </parent>
 
     <groupId>org.csystem</groupId>
-    <artifactId>GenericApp</artifactId>
+    <artifactId>SampleApp</artifactId>
     <version>11.0.0</version>
-    <name>GenericApp</name>
-    <description>Generic Application Provider</description>
+    <name>SampleApp</name>
+    <description>Sample Application For Learning</description>
 
-    <repositories>
-        <repository>
-            <id>javaapp1-nov-2023-maven-repo</id>
-            <url>https://raw.github.com/oguzkaran/javaapp1-nov-2023-maven-repo/main</url>
-        </repository>
-
-        <repository>
-            <id>javaapp1-nov-2023-karandev-maven-repo</id>
-            <url>https://raw.github.com/oguzkaran/javaapp1-nov-2023-karandev-maven-repo/main</url>
-        </repository>
-    </repositories>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
