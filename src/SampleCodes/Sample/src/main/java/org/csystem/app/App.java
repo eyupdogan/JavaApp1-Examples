@@ -6,4 +6,3 @@ class App {
         Application.run(args);
     }
 }
-
