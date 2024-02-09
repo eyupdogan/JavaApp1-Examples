@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>org.csystem</groupId>
-    <artifactId>GenericApp</artifactId>
+    <artifactId>DemoLibraryUsageMavenLocal</artifactId>
     <version>11.0.0</version>
-    <name>GenericApp</name>
-    <description>Generic Application Provider</description>
+    <name>DemoLibraryUsageMavenLocal</name>
+    <description>Demo Project use library from Maven Local Repository</description>
 
     <repositories>
         <repository>
