@@ -9,27 +9,29 @@ import org.junit.runners.Parameterized;
 import java.util.Collection;
 import java.util.List;
 
+@Ignore("Tested before and passed")
 @RunWith(Parameterized.class)
-@Ignore("tested before and passed")
-public class NumberUtilIsPrimeFalseTest {
+public class NumberUtilIPrimeTrueTest {
 
     public long input;
 
     @Parameterized.Parameters
     public static Collection<Long> createData()
     {
-        return List.of(-1L, 4L, 36L);
+        return List.of(6285871677077738093L, 4434895834573449257L, 19L , 71L);
     }
 
-    public NumberUtilIsPrimeFalseTest(long input) {
+
+    public NumberUtilIPrimeTrueTest(long input) {
         this.input = input;
     }
-
 
     @Test
     public void test()
     {
-        Assert.assertFalse(NumberUtil.isPrime(input));
+        Assert.assertTrue(NumberUtil.isPrime(input));
     }
 
 }
+
+

@@ -168,6 +168,26 @@ public final class NumberUtil {
         return result;
     }
 
+
+    public static BigInteger getPrimeBigInteger(int n)
+    {
+        var count = 0;
+        var result = BigInteger.TWO;
+
+        for (BigInteger i = BigInteger.ZERO; count <= n; i = i.add(BigInteger.ONE)) {
+            if (isPrime(i)){
+                ++count;
+                result = i;
+            }
+
+            if (count == n)
+                break;
+        }
+
+        return result;
+    }
+
+
     public static long getPrime(int n)
     {
         var count = 0;
@@ -290,9 +310,12 @@ public final class NumberUtil {
         if (val.remainder(SEVEN).equals(BigInteger.ZERO))
             return val.equals(SEVEN);
 
-        for (var i = ELEVEN; i.multiply(i).compareTo(val) <= 0; i = i.add(BigInteger.TWO))
-             if (val.remainder(i).equals(BigInteger.ZERO))
-                 return false;
+        if (val.remainder(ELEVEN).equals(BigInteger.ZERO))
+            return val.equals(ELEVEN);
+
+        for (var i = BigInteger.valueOf(13); i.multiply(i).compareTo(val) <= 0; i = i.add(BigInteger.TWO))
+            if (val.remainder(i).equals(BigInteger.ZERO))
+                return false;
 
         return true;
     }

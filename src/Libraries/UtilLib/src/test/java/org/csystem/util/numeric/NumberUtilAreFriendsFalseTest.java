@@ -14,7 +14,7 @@ import java.util.List;
 public class NumberUtilAreFriendsFalseTest {
 
     DataInfo dataInfo;
-    public static class DataInfo {
+    static class DataInfo {
         int a;
         int b;
 

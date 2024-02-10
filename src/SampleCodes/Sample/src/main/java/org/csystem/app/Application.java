@@ -1,16 +1,19 @@
 package org.csystem.app;
 
 import com.karandev.io.util.console.Console;
+import org.apache.commons.lang3.time.StopWatch;
+import org.csystem.util.numeric.NumberUtil;
 
 import java.math.BigInteger;
-import java.util.Random;
 
 class Application {
     public static void run(String[] args)
     {
-        var a = Console.readBigInteger("Input first number:");
+        var stopWatch = new StopWatch();
 
-        for (var i = BigInteger.ZERO; i.compareTo(BigInteger.TEN) < 0; i = i.add(BigInteger.ONE))
-            Console.writeLine("%s ", i);
+        stopWatch.start();
+
+
+        stopWatch.stop();
     }
 }

@@ -1,29 +1,26 @@
 package org.csystem.util.numeric;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
-@Ignore("Tested before and passed")
 @RunWith(Parameterized.class)
-public class NumberUtilIsPrimeTrueTest {
+public class NumberUtilBigIntegerIsPrimeTrueTest {
+    public BigInteger input;
 
-    public long input;
-
-    @Parameterized.Parameters
-    public static Collection<Long> createData()
-    {
-        return List.of(6285871677077738093L, 4434895834573449257L, 19L , 71L);
+    public NumberUtilBigIntegerIsPrimeTrueTest(BigInteger input) {
+        this.input = input;
     }
 
-
-    public NumberUtilIsPrimeTrueTest(long input) {
-        this.input = input;
+    @Parameterized.Parameters
+    public static Collection<BigInteger> createData()
+    {
+        return List.of(BigInteger.valueOf(37), BigInteger.valueOf(17), BigInteger.valueOf(97), BigInteger.valueOf(89));
     }
 
     @Test
@@ -31,7 +28,4 @@ public class NumberUtilIsPrimeTrueTest {
     {
         Assert.assertTrue(NumberUtil.isPrime(input));
     }
-
 }
-
-

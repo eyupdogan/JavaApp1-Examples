@@ -15,11 +15,10 @@ public class NumberUtilMidTest {
 
     public DataInfo dataInfo;
 
-    public static class DataInfo {
+    static class DataInfo {
         int a;
         int b;
         int c;
-
         int expected;
 
 
