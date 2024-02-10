@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-@Ignore
+@Ignore("tested before and passed")
 public class NumberUtilSumFactorsTest {
 
     LongIntDataInfo dataInfo;

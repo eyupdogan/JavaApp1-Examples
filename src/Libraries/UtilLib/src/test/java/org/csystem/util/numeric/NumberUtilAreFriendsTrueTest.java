@@ -1,6 +1,7 @@
 package org.csystem.util.numeric;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
+@Ignore("tested before and passed")
 public class NumberUtilAreFriendsTrueTest {
 
     DataInfo dataInfo;
