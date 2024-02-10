@@ -174,14 +174,11 @@ public final class NumberUtil {
         var count = 0;
         var result = BigInteger.TWO;
 
-        for (BigInteger i = BigInteger.ZERO; count <= n; i = i.add(BigInteger.ONE)) {
+        for (BigInteger i = BigInteger.ZERO; count < n; i = i.add(BigInteger.ONE)) {
             if (isPrime(i)){
                 ++count;
                 result = i;
             }
-
-            if (count == n)
-                break;
         }
 
         return result;
