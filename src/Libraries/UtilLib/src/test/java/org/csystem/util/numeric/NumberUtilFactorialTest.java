@@ -1,5 +1,6 @@
 package org.csystem.util.numeric;
 
+import org.csystem.util.numeric.data.IntLongDataInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,27 +12,16 @@ import java.util.List;
 @RunWith(Parameterized.class)
 public class NumberUtilFactorialTest {
 
-    DataInfo dataInfo;
+    IntLongDataInfo dataInfo;
 
-    static class DataInfo {
-        int input;
-        long expected;
-
-
-        public DataInfo(int input, int expected) {
-            this.input = input;
-            this.expected = expected;
-        }
-    }
-
-    public NumberUtilFactorialTest(DataInfo dataInfo) {
+    public NumberUtilFactorialTest(IntLongDataInfo dataInfo) {
         this.dataInfo = dataInfo;
     }
 
     @Parameterized.Parameters
-    public static Collection<DataInfo> createData()
+    public static Collection<IntLongDataInfo> createData()
     {
-        return List.of(new DataInfo(5, 120), new DataInfo(3, 6), new DataInfo(6, 720));
+        return List.of(new IntLongDataInfo(5, 120), new IntLongDataInfo(3, 6), new IntLongDataInfo(6, 720));
     }
 
     @Test

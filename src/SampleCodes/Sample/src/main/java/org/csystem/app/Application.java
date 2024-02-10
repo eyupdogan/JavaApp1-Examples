@@ -5,10 +5,11 @@ import com.karandev.io.util.console.Console;
 class Application {
     public static void run(String[] args)
     {
-        int a = Console.readInt("Birinci sayıyı giriniz:", "Hatalı giriş yaptınız");
-        int b = Console.readInt("İkinci sayıyı giriniz:", "Hatalı giriş yaptınız");
+        int x = 10;
+        var a = 10;
+        var b = 5.6;
+        var c = a++;
 
-        Console.writeLine("%d + %d = %d", a, b, a + b);
-
+        Console.writeLine("a = %d, b = %f, c = %d, x = %d", a, b, c, x);
     }
 }
