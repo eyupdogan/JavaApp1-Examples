@@ -1,12 +1,23 @@
 package org.csystem.app;
 
-import com.karandev.io.util.console.Console;
-import org.csystem.util.numeric.NumberUtil;
+import org.csystem.util.console.Console;
 
 class Application {
     public static void run(String[] args)
     {
-        Console.writeLine("%d ", NumberUtil.getPrime(2));
-        Console.writeLine("%d ", NumberUtil.getPrimeBigInteger(2));
+        Sample.foo(100);
+    }
+}
+
+class Sample {
+    public static void foo(int x)
+    {
+        Console.writeLine("Giriş %d", x);
+
+        if (x == 0)
+            return;
+
+        foo(x - 1);
+        Console.writeLine("Çıkış %d", x);
     }
 }
