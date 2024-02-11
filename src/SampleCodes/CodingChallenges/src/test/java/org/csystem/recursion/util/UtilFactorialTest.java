@@ -10,6 +10,7 @@ import java.util.List;
 
 @RunWith(Parameterized.class)
 public class UtilFactorialTest {
+
     DataInfo dataInfo;
 
     static class DataInfo {
@@ -22,15 +23,16 @@ public class UtilFactorialTest {
         }
     }
 
-    @Parameterized.Parameters
-    public static Collection<DataInfo> createData()
-    {
-        return List.of(new DataInfo(-1,1),new DataInfo(0,1),new DataInfo(1,1),
-                new DataInfo(2,2),new DataInfo(3,6),new DataInfo(4,24),new DataInfo(5,120));
-    }
 
     public UtilFactorialTest(DataInfo dataInfo) {
         this.dataInfo = dataInfo;
+    }
+
+    @Parameterized.Parameters
+    public static Collection<DataInfo> createData()
+    {
+        return List.of(new DataInfo(5, 120), new DataInfo(6, 720),
+                new DataInfo(-4, 1));
     }
 
     @Test

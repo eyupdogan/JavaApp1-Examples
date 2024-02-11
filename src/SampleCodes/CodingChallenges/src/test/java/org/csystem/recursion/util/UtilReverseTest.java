@@ -9,13 +9,12 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class RecursionUtilReverseTest {
+public class UtilReverseTest {
 
     DataInfo dataInfo;
 
     static class DataInfo {
-        String input;
-        String expected;
+        String input, expected;
 
         public DataInfo(String input, String expected) {
             this.input = input;
@@ -23,7 +22,7 @@ public class RecursionUtilReverseTest {
         }
     }
 
-    public RecursionUtilReverseTest(DataInfo dataInfo) {
+    public UtilReverseTest(DataInfo dataInfo) {
         this.dataInfo = dataInfo;
     }
 
@@ -37,6 +36,6 @@ public class RecursionUtilReverseTest {
     @Test
     public void test()
     {
-        Assert.assertEquals(dataInfo.expected, RecursionUtil.reverse(dataInfo.input));
+        Assert.assertEquals(dataInfo.expected, Util.reverse(dataInfo.input));
     }
 }

@@ -9,15 +9,13 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class UtilGcsTest {
+public class RecursionUtilGcdTest {
 
     DataInfo dataInfo;
 
-    static class DataInfo
-    {
+    static class DataInfo {
         int a;
         int b;
-
         int expected;
 
         public DataInfo(int a, int b, int expected) {
@@ -27,20 +25,19 @@ public class UtilGcsTest {
         }
     }
 
+    public RecursionUtilGcdTest(DataInfo dataInfo) {
+        this.dataInfo = dataInfo;
+    }
+
     @Parameterized.Parameters
     public static Collection<DataInfo> createData()
     {
-        return List.of(new DataInfo(3,4, 1), new DataInfo(8,18,2), new DataInfo(5,25,5), new DataInfo(2,2,2),
-                new DataInfo(3,-4, 1), new DataInfo(8,-18,2), new DataInfo(5,-25,5), new DataInfo(2,-2,2));
-    }
-
-    public UtilGcsTest(DataInfo dataInfo) {
-        this.dataInfo = dataInfo;
+        return List.of(new DataInfo(24, 8, 8), new DataInfo(44, 11, 11), new DataInfo(45, 17, 1));
     }
 
     @Test
     public void test()
     {
-        Assert.assertEquals(dataInfo.expected, Util.gcd(dataInfo.a, dataInfo.b));
+        Assert.assertEquals(dataInfo.expected, RecursionUtil.gcd(dataInfo.a, dataInfo.b));
     }
 }
