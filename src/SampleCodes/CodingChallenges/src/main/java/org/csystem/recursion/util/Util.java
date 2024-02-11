@@ -48,4 +48,64 @@ public class Util {
         for (int i = s.length() - 1; i >= 0; --i)
             System.out.print(s.charAt(i));
     }
+
+    public static int fibonacciNumber(int n)
+    {
+        if (n <= 0)
+            return -1;
+
+        if (n <= 2)
+            return n - 1;
+
+        int prev1 = 1, prev2 = 0, result = 0;
+
+        for (var i = 2; i < n; ++i) {
+            result = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = result;
+        }
+
+        return result;
+    }
+
+    public static void writeCollatz(int val)
+    {
+
+    }
+
+    public static void writeNumber(int val)
+    {
+        if (val == 0) {
+            System.out.write('0');
+            return;
+        }
+
+        char [] s = new char[11];
+        var isNegative = false;
+        int i;
+
+        if (val < 0) {
+            isNegative = true;
+            val = -val;
+        }
+
+        for (i = 0; val != 0; ++i, val /= 10)
+            s[i] = (char)(val % 10 + '0');
+
+        if (isNegative)
+            s[i++] = '-';
+
+        for (--i; i >= 0; --i)
+            System.out.write(s[i]);
+
+    }
+
+    public static long power(int val, int exponent)
+    {
+        int result = 1;
+        for (int i = 0; i < exponent; ++i)
+            result *= val;
+
+        return result;
+    }
 }

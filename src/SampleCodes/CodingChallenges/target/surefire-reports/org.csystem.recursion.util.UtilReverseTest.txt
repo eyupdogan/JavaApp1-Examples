@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.csystem.recursion.util.UtilReverseTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.csystem.recursion.util.UtilReverseTest
