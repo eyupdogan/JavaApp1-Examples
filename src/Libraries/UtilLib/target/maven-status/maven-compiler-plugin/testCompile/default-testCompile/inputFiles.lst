@@ -1,12 +1,15 @@
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilBigIntegerIsPrimeTrueTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/data/IntIntDataInfo.java
+/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilMidBigIntegerTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilSumFactorsTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/data/IntLongDataInfo.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilAreFriendsTrueTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilGetPrimeTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilBigIntegerIsPrimeFalseTest.java
+/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/bitwise/BitwiseUtilToBinaryStrIntTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilIPrimeTrueTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilIPrimeFalseTest.java
+/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/bitwise/BitwiseUtilToBinaryStrLongTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilFactorialBigIntegerTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/NumberUtilFactorialTest.java
 /Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/UtilLib/src/test/java/org/csystem/util/numeric/data/LongIntDataInfo.java

@@ -327,10 +327,6 @@ public final class NumberUtil {
         return result;
     }
 
-    /**
-     *
-     * @author Hüseyin Mercimek
-     */
     public static boolean isPrimeX(BigInteger val)
     {
         boolean result ;
@@ -346,10 +342,6 @@ public final class NumberUtil {
         return isPrime(val) && isPrime(indexOfPrime(val));
     }
 
-    /**
-     *
-     * @author Berkay Yılmaz
-     */
     public static boolean isSuperPrime(BigInteger val)
     {
         return isPrime(val) && isPrime(indexOfPrime(val));
@@ -380,10 +372,6 @@ public final class NumberUtil {
         return c;
     }
 
-    /**
-     *
-     * @author Bera Bozgöz
-     */
     public static BigInteger mid(BigInteger a, BigInteger b, BigInteger c)
     {
         if (a.compareTo(b) <= 0 && b.compareTo(c) <= 0 || c.compareTo(b) <= 0 && b.compareTo(a) <= 0)
