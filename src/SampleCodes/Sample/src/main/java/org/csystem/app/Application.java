@@ -1,16 +1,32 @@
 package org.csystem.app;
 
-import com.karandev.io.util.console.Console;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import org.csystem.util.console.Console;
 
 class Application {
     public static void run(String[] args)
     {
-        var now = new GregorianCalendar(1993, Calendar.OCTOBER, 24);
+        var a = new A();
+        var b = a.new B();
 
-        Console.writeLine("%02d/%02d/%04d", now.get(Calendar.DAY_OF_MONTH), now.get(Calendar.MONTH) + 1, now.get(Calendar.YEAR));
+        b.foo();
+
+        //...
     }
 }
 
+class A {
+    //...
+    public void foo()
+    {
+        Console.writeLine("A.foo");
+    }
+
+    public class B {
+        //...
+        public void foo()
+        {
+            Console.writeLine("B.foo");
+            A.this.foo();
+        }
+    }
+}
