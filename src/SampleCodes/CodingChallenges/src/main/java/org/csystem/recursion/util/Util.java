@@ -68,11 +68,6 @@ public class Util {
         return result;
     }
 
-    public static void writeCollatz(int val)
-    {
-
-    }
-
     public static void writeNumber(int val)
     {
         if (val == 0) {
@@ -107,5 +102,21 @@ public class Util {
             result *= val;
 
         return result;
+    }
+
+    public static void writeCollatz(int val)
+    {
+        if (val <= 0) {
+            System.out.println("Lütfen pozitif bir sayı giriniz:");
+            return;
+        }
+
+
+        System.out.printf("%d ", val);
+
+        while (val != 1) {
+            val = val % 2 == 0 ? val / 2 : 3 * val + 1;
+            System.out.printf("%d ", val);
+        }
     }
 }
