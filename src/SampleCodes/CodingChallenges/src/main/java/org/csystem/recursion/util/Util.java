@@ -85,6 +85,17 @@ public class Util {
 
     }
 
+    public static int [] selectionSort(int [] arr)
+    {
+        for (int i = 0; i < arr.length - 1; ++i)
+            for (int k = i + 1; k < arr.length; ++k)
+                if (arr[k] < arr[i])
+                    swap(arr, i, k);
+
+        return arr;
+    }
+
+
     public static void writeReverse(String s)
     {
         for (int i = s.length() - 1; i >= 0; --i)

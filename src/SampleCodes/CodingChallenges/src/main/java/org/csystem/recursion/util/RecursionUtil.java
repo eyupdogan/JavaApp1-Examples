@@ -153,6 +153,7 @@ public class RecursionUtil {
         return String.valueOf(chars);
     }
 
+
     public static long power(int val, int exponent)
     {
         if (exponent == 1)
@@ -195,6 +196,4 @@ public class RecursionUtil {
             return;
         writeCollatz(val % 2 == 0 ? val / 2 : 3 * val + 1);
     }
-
-
 }
