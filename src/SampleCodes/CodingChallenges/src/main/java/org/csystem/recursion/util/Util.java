@@ -1,6 +1,24 @@
 package org.csystem.recursion.util;
 
 public class Util {
+
+    private static void swap(int [] arr, int i, int k)
+    {
+        int temp = arr[i];
+        arr[i] = arr[k];
+        arr[k] = temp;
+    }
+
+    public static int [] bubbleSort(int [] arr)
+    {
+        for (int i = 0; i < arr.length; ++i)
+            for (int k = 0; k < arr.length - 1 - i; ++k)
+                if (arr[k + 1] < arr[k])
+                    swap(arr, k + 1, k);
+
+        return arr;
+    }
+
     public static long factorial(int n)
     {
         if (n <= 0)
@@ -24,6 +42,30 @@ public class Util {
         }
 
         return 1;
+    }
+
+    public static boolean isPrime(int val)
+    {
+        if (val % 2 == 0)
+            return val == 2;
+
+        if (val % 3 == 0)
+            return val == 3;
+
+        if (val % 5 == 0)
+            return val == 5;
+
+        if (val % 7 == 0)
+            return val == 7;
+
+        if (val % 11 == 0)
+            return val == 11;
+
+        for (int i = 13; i * i < val; i +=2)
+            if (val % i == 0)
+                return false;
+
+        return true;
     }
 
     public static String reverse(String s)

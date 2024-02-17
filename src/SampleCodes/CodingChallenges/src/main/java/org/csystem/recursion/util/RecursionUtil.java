@@ -10,6 +10,18 @@ public class RecursionUtil {
         return arr[n] + arraySum(arr, n - 1);
     }
 
+    private static void bubbleSort(int [] arr, int idx, int length)
+    {
+        if (idx + 1 == length)
+            return;
+
+        for (int i = 0; i < length - 1 - idx; ++i)
+            if (arr[i + 1] < arr[i])
+                swap(arr, i + 1, i);
+
+        bubbleSort(arr, idx + 1, length);
+    }
+
     private static int fibonacciNumberRecur(int n)
     {
         return n <= 2 ? n - 1 : fibonacciNumberRecur(n - 1) + fibonacciNumberRecur(n - 2);
@@ -18,6 +30,17 @@ public class RecursionUtil {
     private static int gcdRecur(int a, int b)
     {
         return b == 0 ? a : gcdRecur(b, a % b);
+    }
+
+    private static boolean isPrime(int val, int start)
+    {
+        if (val % start == 0)
+            return false;
+
+        if (start * start > val)
+            return true;
+
+        return isPrime(val, start + 2);
     }
 
     private static int maxArrayElement(int [] arr, int idx)
@@ -38,6 +61,13 @@ public class RecursionUtil {
         chars[right] = temp;
 
         reverse(chars, left + 1, right - 1);
+    }
+
+    private static void swap(int [] arr, int i, int k)
+    {
+        var temp = arr[i];
+        arr[i] = arr[k];
+        arr[k] = temp;
     }
 
     private static void writeNumberRecur(int val)
@@ -63,6 +93,13 @@ public class RecursionUtil {
         return arraySum(arr, arr.length - 1);
     }
 
+    public static int [] bubbleSort(int [] arr)
+    {
+        for (int i = 0; i < arr.length; ++i)
+            bubbleSort(arr, i, arr.length);
+
+        return arr;
+    }
 
     public static long factorial(int n)
     {
@@ -80,6 +117,26 @@ public class RecursionUtil {
     public static int gcd(int a, int b)
     {
         return gcdRecur(Math.abs(a), Math.abs(b));
+    }
+
+    public static boolean isPrime(int val)
+    {
+        if (val % 2 == 0)
+            return val == 2;
+
+        if (val % 3 == 0)
+            return val == 3;
+
+        if (val % 5 == 0)
+            return val == 5;
+
+        if (val % 7 == 0)
+            return val == 7;
+
+        if (val % 11 == 0)
+            return val == 11;
+
+        return isPrime(val, 11);
     }
 
     public static int maxArrayElement(int [] arr)
