@@ -22,6 +22,17 @@ public class RecursionUtil {
         bubbleSort(arr, idx + 1, length);
     }
 
+    private static int countDigits(int val)
+    {
+        int count = 0;
+
+        while (val != 0) {
+            ++count;
+            val /= 10;
+        }
+        return count;
+    }
+
     private static int fibonacciNumberRecur(int n)
     {
         return n <= 2 ? n - 1 : fibonacciNumberRecur(n - 1) + fibonacciNumberRecur(n - 2);
@@ -30,6 +41,17 @@ public class RecursionUtil {
     private static int gcdRecur(int a, int b)
     {
         return b == 0 ? a : gcdRecur(b, a % b);
+    }
+
+    private static int isArmstrong(int val, int countDigits)
+    {
+        int temp = val % 10;
+        val /= 10;
+
+        if (temp == 0 && val == 0)
+            return 0;
+
+        return (int)Math.pow(temp, countDigits) + isArmstrong(val, countDigits);
     }
 
     private static boolean isPrime(int val, int start)
@@ -122,6 +144,16 @@ public class RecursionUtil {
     public static int gcd(int a, int b)
     {
         return gcdRecur(Math.abs(a), Math.abs(b));
+    }
+
+    public static boolean isArmstrong(int val)
+    {
+        if (val < 0)
+            return false;
+
+        System.out.println(isArmstrong(val, countDigits(val)));
+
+        return isArmstrong(val, countDigits(val)) == val;
     }
 
     public static boolean isPrime(int val)

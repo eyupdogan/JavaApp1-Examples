@@ -3,6 +3,19 @@ package org.csystem.recursion.util;
 
 public class Util {
 
+    private static int countDigits(int val)
+    {
+        int count = 0;
+
+        while (val != 0) {
+            ++count;
+            val /= 10;
+        }
+
+        return count;
+
+    }
+
     private static void swap(int [] arr, int i, int k)
     {
         int temp = arr[i];
@@ -43,6 +56,24 @@ public class Util {
         }
 
         return 1;
+    }
+
+    public static boolean isArmstrong(int val)
+    {
+        if (val < 0)
+            return false;
+
+        int result = 0;
+        int powNumber = countDigits(val);
+
+        int temp = val;
+
+        while (temp != 0) {
+            result += (int) Math.pow(temp % 10, powNumber);
+            temp /= 10;
+        }
+
+        return result == val;
     }
 
     public static boolean isPrime(int val)
