@@ -63,6 +63,11 @@ public class RecursionUtil {
         reverse(chars, left + 1, right - 1);
     }
 
+    private static int reverse(int val, int result)
+    {
+        return val == 0 ? result : reverse(val / 10, result * 10 + val % 10);
+    }
+
     private static void swap(int [] arr, int i, int k)
     {
         var temp = arr[i];
@@ -151,6 +156,11 @@ public class RecursionUtil {
         reverse(chars, 0, s.length() - 1);
 
         return String.valueOf(chars);
+    }
+
+    public static int reverse(int val)
+    {
+        return val < 0 ? -reverse(Math.abs(val), 0) : reverse(val, 0);
     }
 
 

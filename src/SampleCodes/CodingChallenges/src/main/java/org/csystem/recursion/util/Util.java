@@ -1,5 +1,6 @@
 package org.csystem.recursion.util;
 
+
 public class Util {
 
     private static void swap(int [] arr, int i, int k)
@@ -83,6 +84,20 @@ public class Util {
 
         return String.valueOf(chars);
 
+    }
+
+    public static int reverse(int val)
+    {
+        int result = 0;
+        boolean isNegative = val < 0;
+        int temp = Math.abs(val);
+
+        while (temp != 0) {
+            result = result * 10 + temp % 10;
+            temp /= 10;
+        }
+
+        return isNegative ? -result : result;
     }
 
     public static int [] selectionSort(int [] arr)

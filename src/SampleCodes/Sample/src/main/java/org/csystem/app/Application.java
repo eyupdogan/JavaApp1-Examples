@@ -3,45 +3,31 @@ package org.csystem.app;
 import org.csystem.util.console.Console;
 
 class Application {
-    public static void run(String[] args)
+    public static void run(String...args)
     {
-        PrintCollatzTest.run();
+        CountDigitsTest.run();
     }
 }
 
+class CountDigitsTest {
 
-class PrintCollatzTest {
     public static void run()
     {
         java.util.Scanner kb = new java.util.Scanner(System.in);
+        System.out.println("Sayıları girmeye başlayınız:");
 
-        while (true) {
-            System.out.print("Bir sayı giriniz:");
-            int n = Integer.parseInt(kb.nextLine());
+        int val;
 
-            if (n == 0)
-                break;
+        while ((val = kb.nextInt()) != 0)
+            System.out.printf("%d sayısının basamak sayısı:%d%n", val, NumberUtil.countDigits(val));
 
-            NumberUtil.printCollatz(n);
-        }
-
-        System.out.println("Tekrar Yapıyor musunuz?");
+        System.out.printf("0 sayısının basamak sayısı:%d%n", NumberUtil.countDigits(0));
     }
 }
 
 class NumberUtil {
-    public static void printCollatz(int n)
+    public static int countDigits(int val)
     {
-        for (;;) {
-            if (n % 2 == 0) {
-                n /= 2;
-            }else
-                n = 3 * n + 1;
-
-            System.out.printf("%d ", n);
-
-            if (n == 1)
-                break;
-        }
+        return (int) Math.log10(val) + 1;
     }
 }
