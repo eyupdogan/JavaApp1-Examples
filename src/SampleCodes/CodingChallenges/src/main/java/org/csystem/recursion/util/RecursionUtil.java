@@ -24,7 +24,7 @@ public class RecursionUtil {
 
     private static int countDigits(int val)
     {
-        int count = 0;
+        int count = val == 0 ? 1 : 0;
 
         while (val != 0) {
             ++count;
