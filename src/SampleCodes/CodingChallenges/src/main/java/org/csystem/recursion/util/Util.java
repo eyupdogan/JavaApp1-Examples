@@ -76,6 +76,21 @@ public class Util {
         return result == val;
     }
 
+    public static boolean isPerfect(int val)
+    {
+        int sum = 0;
+
+        if (val <= 0)
+            return false;
+
+        for (int i = 1; i <= val / 2; ++i) {
+            if (val % i == 0)
+                sum += i;
+        }
+
+        return sum == val;
+    }
+
     public static boolean isPrime(int val)
     {
         if (val % 2 == 0)
@@ -139,6 +154,18 @@ public class Util {
                     swap(arr, i, k);
 
         return arr;
+    }
+
+    public static int sumFactors(long val)
+    {
+        int result = 1;
+        long sqrtVal = (long)Math.sqrt(val);
+
+        for (long i = 2; i <= sqrtVal; ++i)
+            if (val % i == 0)
+                result += (int)((i == val / i) ? i : (i + val / i));
+
+        return result;
     }
 
 

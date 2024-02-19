@@ -54,6 +54,14 @@ public class RecursionUtil {
         return (int)Math.pow(temp, countDigits) + isArmstrong(val, countDigits);
     }
 
+    private static int isPerfect(int val, int i)
+    {
+        if (i > val / 2)
+            return 0;
+
+        return  val % i == 0 ? i + isPerfect(val, i + 1) : isPerfect(val, i + 1);
+    }
+
     private static boolean isPrime(int val, int start)
     {
         if (val % start == 0)
@@ -89,6 +97,8 @@ public class RecursionUtil {
     {
         return val == 0 ? result : reverse(val / 10, result * 10 + val % 10);
     }
+
+
 
     private static void swap(int [] arr, int i, int k)
     {
@@ -156,6 +166,31 @@ public class RecursionUtil {
         return isArmstrong(val, countDigits(val)) == val;
     }
 
+    private static int sumFactors(long val, long sqrtVal, int i)
+    {
+        if (i > sqrtVal)
+            return 0;
+
+        if (val % i == 0)
+            return (int)((i == val / i) ? i : (i + val / i)) + sumFactors(val, sqrtVal, i + 1);
+        else
+            return sumFactors(val, sqrtVal, i + 1);
+    }
+
+    public static int sumFactors(long val)
+    {
+        long sqrtVal = (long) Math.sqrt(val);
+        return 1 + sumFactors(val, sqrtVal, 2);
+    }
+
+    public static boolean isPerfect(int val)
+    {
+        if (val <= 0)
+            return false;
+
+        return val == sumFactors(val);
+    }
+
     public static boolean isPrime(int val)
     {
         if (val % 2 == 0)
@@ -202,6 +237,8 @@ public class RecursionUtil {
             return val;
         return val * power(val, exponent - 1);
     }
+
+
 
     public static int sumOfOddNumbers(int n)
     {
