@@ -54,6 +54,14 @@ public class RecursionUtil {
         return (int)Math.pow(temp, countDigits) + isArmstrong(val, countDigits);
     }
 
+    public static boolean isPangramEN(String s, char c)
+    {
+        if (c > 'z')
+            return true;
+
+        return s.indexOf(c) != -1 && isPangramEN(s, (char) (c + 1));
+    }
+
     private static int isPerfect(int val, int i)
     {
         if (i > val / 2)
@@ -98,7 +106,16 @@ public class RecursionUtil {
         return val == 0 ? result : reverse(val / 10, result * 10 + val % 10);
     }
 
+    private static int sumFactors(long val, long sqrtVal, int i)
+    {
+        if (i > sqrtVal)
+            return 0;
 
+        if (val % i == 0)
+            return (int)((i == val / i) ? i : (i + val / i)) + sumFactors(val, sqrtVal, i + 1);
+        else
+            return sumFactors(val, sqrtVal, i + 1);
+    }
 
     private static void swap(int [] arr, int i, int k)
     {
@@ -166,23 +183,10 @@ public class RecursionUtil {
         return isArmstrong(val, countDigits(val)) == val;
     }
 
-    private static int sumFactors(long val, long sqrtVal, int i)
+    public static boolean isPangramEN(String s)
     {
-        if (i > sqrtVal)
-            return 0;
-
-        if (val % i == 0)
-            return (int)((i == val / i) ? i : (i + val / i)) + sumFactors(val, sqrtVal, i + 1);
-        else
-            return sumFactors(val, sqrtVal, i + 1);
+        return isPangramEN(s, 'a');
     }
-
-    public static int sumFactors(long val)
-    {
-        long sqrtVal = (long) Math.sqrt(val);
-        return 1 + sumFactors(val, sqrtVal, 2);
-    }
-
     public static boolean isPerfect(int val)
     {
         if (val <= 0)
@@ -230,6 +234,11 @@ public class RecursionUtil {
         return val < 0 ? -reverse(Math.abs(val), 0) : reverse(val, 0);
     }
 
+    public static int sumFactors(long val)
+    {
+        long sqrtVal = (long) Math.sqrt(val);
+        return 1 + sumFactors(val, sqrtVal, 2);
+    }
 
     public static long power(int val, int exponent)
     {

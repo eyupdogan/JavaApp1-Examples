@@ -76,6 +76,15 @@ public class Util {
         return result == val;
     }
 
+    public static boolean isPangramEN(String s)
+    {
+        for (char c = 'a'; c <= 'z'; ++c)
+            if (s.indexOf(c) == -1)
+                return false;
+
+        return true;
+    }
+
     public static boolean isPerfect(int val)
     {
         int sum = 0;
