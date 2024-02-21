@@ -11,9 +11,12 @@ import java.util.stream.IntStream;
 class Application {
     public static void run(String[] args)
     {
-        var count = Console.readInt("Bir sayı giriniz");
-        var random = new Random();
+        Object o = 10; //auto boxing: Integer.valueOf(10);
 
-        IntStream.generate(()-> random.nextInt(100)).filter(NumberUtil::isPrime).limit(count).forEach(p -> Console.write("%d ", p));
+        System.out.println(o.getClass().getName());
+
+        long a = (long)o; //auto unboxing: ((Long)o).longValue();
+
+        System.out.printf("a = %d%n", a);
     }
 }
