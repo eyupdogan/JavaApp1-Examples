@@ -2,21 +2,16 @@ package org.csystem.app;
 
 
 import com.karandev.io.util.console.Console;
-import org.csystem.util.numeric.NumberUtil;
 
-import java.io.InputStream;
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.Scanner;
 
 class Application {
-    public static void run(String[] args)
-    {
-        Object o = 10; //auto boxing: Integer.valueOf(10);
+    public static void run(String[] args) {
+        String s = "İyi bir Java programcısı olmak için [çok] {çok} çalışmak gerekir!... Sizler de iyi bir Java programcısı olacaksınız.";
 
-        System.out.println(o.getClass().getName());
+        String [] words = s.split("[.! {}\\[\\]]+");
 
-        long a = (long)o; //auto unboxing: ((Long)o).longValue();
-
-        System.out.printf("a = %d%n", a);
+        for (int i = 0; i < words.length; ++i)
+            System.out.println(words[i]);
     }
 }
