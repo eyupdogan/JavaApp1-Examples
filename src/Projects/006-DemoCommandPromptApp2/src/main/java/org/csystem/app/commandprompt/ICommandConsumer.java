@@ -1,6 +1,5 @@
-package org.csystem.app.commandpropmt;
+package org.csystem.app.commandprompt;
 
-@FunctionalInterface
 public interface ICommandConsumer {
     public void accept(String [] cmdInfo);
 }

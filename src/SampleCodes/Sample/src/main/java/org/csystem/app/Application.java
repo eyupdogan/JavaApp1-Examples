@@ -1,17 +1,17 @@
 package org.csystem.app;
 
 
-import com.karandev.io.util.console.Console;
-
-import java.util.Scanner;
+import org.csystem.util.console.Console;
 
 class Application {
     public static void run(String[] args) {
-        String s = "İyi bir Java programcısı olmak için [çok] {çok} çalışmak gerekir!... Sizler de iyi bir Java programcısı olacaksınız.";
+        try {
+            var cls = Class.forName(Console.readString("Input type:"));
 
-        String [] words = s.split("[.! {}\\[\\]]+");
-
-        for (int i = 0; i < words.length; ++i)
-            System.out.println(words[i]);
+            Console.writeLine("Name:%s", cls.getName());
+        }
+        catch (ClassNotFoundException ex) {
+            Console.writeErrLine("Message:%s", ex);
+        }
     }
 }

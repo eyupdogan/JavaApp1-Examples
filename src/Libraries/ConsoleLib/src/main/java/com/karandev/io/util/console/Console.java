@@ -948,4 +948,7 @@ public final class Console {
 
         writeLine();
     }
+
+    public static class CommandLineArgs {
+    }
 }
