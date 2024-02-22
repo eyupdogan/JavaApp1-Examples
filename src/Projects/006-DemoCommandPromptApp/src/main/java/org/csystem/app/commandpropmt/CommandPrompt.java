@@ -1,11 +1,10 @@
-package org.csystem.app.commandprompt;
+package org.csystem.app.commandpropmt;
 
 import com.karandev.io.util.console.Console;
 
 import java.util.ArrayList;
 
 public class CommandPrompt {
-
     private String m_prompt;
 
     private final static ArrayList<CommandInfo> COMMANDS = new ArrayList<>();
@@ -16,7 +15,7 @@ public class CommandPrompt {
         COMMANDS.add(new CommandInfo("reverse", CommandPrompt::reverseCallback));
         COMMANDS.add(new CommandInfo("upper", CommandPrompt::upperCallback));
         COMMANDS.add(new CommandInfo("lower", CommandPrompt::lowerCallback));
-        COMMANDS.add(new CommandInfo("chpr", commandPrompt::changePromptCallback));
+        COMMANDS.add(new CommandInfo("chpr", commandPrompt::chprCallback));
         COMMANDS.add(new CommandInfo("quit", CommandPrompt::quitCallback));
     }
 
@@ -47,29 +46,33 @@ public class CommandPrompt {
     private static void lowerCallback(String [] cmdInfo)
     {
         if (cmdInfo.length <= 2)
-            Console.writeLine(cmdInfo[1].toUpperCase());
+            Console.writeLine(cmdInfo[1].toLowerCase());
         else
             Console.writeLine("Invalid arguments for lower command");
     }
 
-    private void changePromptCallback(String [] cmdInfo)
+    private void chprCallback(String [] cmdInfo)
     {
         if (cmdInfo.length <= 2)
             m_prompt = cmdInfo[1];
         else
-            Console.writeLine("Invalid arguments for chpr command");
+            Console.writeLine("Invalid arguments for lower command");
     }
 
     private static void quitCallback(String [] cmdInfo)
     {
-        Console.writeLine("C and System Programmers Association");
+        Console.writeLine("C and System Association");
         Console.writeLine("Thanks");
         System.exit(0);
     }
 
-    private static String [] parseCommandStr(String cmdStr)
+    private String [] parseCommandStr(String cmdStr)
     {
         return cmdStr.split("[ \t]+");
+    }
+
+    public CommandPrompt(String prompt) {
+        m_prompt = prompt;
     }
 
     private void parseCommand(String [] cmdInfo)
@@ -77,13 +80,9 @@ public class CommandPrompt {
         var index = COMMANDS.indexOf(new CommandInfo(cmdInfo[0]));
 
         if (index != -1)
-            COMMANDS.get(index).commandConsumer.accept(cmdInfo);
+            COMMANDS.get(index).consumer.accept(cmdInfo);
         else
             Console.Error.writeLine("Invalid command!...");
-    }
-
-    public CommandPrompt(String prompt) {
-        m_prompt = prompt;
     }
 
     public void run()
@@ -91,9 +90,7 @@ public class CommandPrompt {
         fillCommands(this);
         while (true) {
             var cmdStr = Console.read(m_prompt + ">").strip();
-
             parseCommand(parseCommandStr(cmdStr));
         }
     }
-
 }
