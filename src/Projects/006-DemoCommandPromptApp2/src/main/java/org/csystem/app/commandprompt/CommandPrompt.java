@@ -9,7 +9,8 @@ public class CommandPrompt {
 
     public ArrayList<CommandInfo> COMMANDS = new ArrayList<>();
 
-    public void fillCommandList(CommandPrompt commandPrompt) {
+    public void fillCommandList(CommandPrompt commandPrompt)
+    {
         COMMANDS.add(new CommandInfo("length", CommandPrompt::lengthCallback));
         COMMANDS.add(new CommandInfo("reverse", CommandPrompt::reverseCallback));
         COMMANDS.add(new CommandInfo("lower", CommandPrompt::lowerCallback));
