@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>org.csystem</groupId>
-    <artifactId>DemoDeclaredApp</artifactId>
+    <artifactId>DemoReflectionApp</artifactId>
     <version>11.1.0</version>
-    <name>DemoDeclaredApp</name>
+    <name>DemoReflectionApp</name>
 
     <repositories>
         <repository>

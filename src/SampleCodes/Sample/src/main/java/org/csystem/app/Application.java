@@ -1,17 +1,30 @@
+
 package org.csystem.app;
 
 
-import org.csystem.util.console.Console;
+import com.karandev.io.util.console.Console;
+import org.csystem.app.demo.Singleton;
+
+import java.lang.reflect.InvocationTargetException;
 
 class Application {
-    public static void run(String[] args) {
+    public static void run(String[] args)
+    {
         try {
-            var cls = Class.forName(Console.readString("Input type:"));
+            var cls = Singleton.class;
 
-            Console.writeLine("Name:%s", cls.getName());
+            var ctor = cls.getDeclaredConstructor(int.class);
+
+            ctor.setAccessible(true);//ctor private olsa dahi setAccessible true olduğu anda erişime açılıyor
+            var s = (Singleton)ctor.newInstance(10);
+            ctor.setAccessible(false);//işimiz bitince setAccessible yi false çekiyorum
+
+            Console.writeLine("Value:%d", s.getValue());
+
         }
-        catch (ClassNotFoundException ex) {
-            Console.writeErrLine("Message:%s", ex);
+        catch (NoSuchMethodException | SecurityException | InvocationTargetException | InstantiationException
+               | IllegalAccessException ex) {
+            Console.Error.writeLine(ex.getMessage());
         }
     }
 }

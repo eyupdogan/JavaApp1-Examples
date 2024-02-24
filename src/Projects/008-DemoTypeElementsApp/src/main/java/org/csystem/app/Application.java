@@ -14,7 +14,7 @@ class Application {
             Console.writeLine("-------------");
             Console.writeLine("Constructors:");
             Console.writeLine("-------------");
-            for (var ctor : cls.getDeclaredConstructors())
+            for (var ctor : cls.getConstructors())
                 Console.writeLine("%s(%s)", cls.getSimpleName(), getParametersStr(ctor.getParameters()));
         }
         catch (Throwable ex) {
@@ -28,7 +28,7 @@ class Application {
             Console.writeLine("-------------");
             Console.writeLine("Annotations:");
             Console.writeLine("-------------");
-            for (var annotation : cls.getDeclaredAnnotations())
+            for (var annotation : cls.getAnnotations())
                 Console.writeLine("@%s", annotation.annotationType().getSimpleName());
         }
         catch (Throwable ex) {
@@ -69,7 +69,7 @@ class Application {
             Console.writeLine("-------------");
             Console.writeLine("Fields:");
             Console.writeLine("-------------");
-            for (var field : cls.getDeclaredFields())
+            for (var field : cls.getFields())
                 Console.writeLine("%s %s", field.getType().getSimpleName(), field.getName());
         }
         catch (Throwable ex) {
@@ -93,7 +93,7 @@ class Application {
             Console.writeLine("-------------");
             Console.writeLine("Methods:");
             Console.writeLine("-------------");
-            for (var method : cls.getDeclaredMethods())
+            for (var method : cls.getMethods())
                 Console.writeLine("%s %s(%s)", method.getReturnType().getSimpleName(), method.getName(),
                         getParametersStr(method.getParameters()));
 
@@ -104,7 +104,7 @@ class Application {
         }
     }
 
-    private static void printDeclaredMetaData(Class<?> cls)
+    private static void printMetaData(Class<?> cls)
     {
         printAnnotations(cls);
         printSuperClass(cls);
@@ -116,10 +116,10 @@ class Application {
 
     public static void run(String[] args)
     {
-        checkLengthEquals(args.length, 1, "usage: java -jar DemoDeclaredElementsApp <fully qualified typename>");
+        checkLengthEquals(args.length, 1, "usage: java -jar DemoReflectionApp-11.1.0.jar <fully qualified typename>");
 
         try {
-            printDeclaredMetaData(Class.forName(args[0]));
+            printMetaData(Class.forName(args[0]));
         }
         catch (ClassNotFoundException ignore) {
             Console.Error.writeLine("cannot find type:%s", args[0]);

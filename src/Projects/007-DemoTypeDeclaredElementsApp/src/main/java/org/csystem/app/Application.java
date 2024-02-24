@@ -116,7 +116,7 @@ class Application {
 
     public static void run(String[] args)
     {
-        checkLengthEquals(args.length, 1, "usage: java -jar DemoDeclaredElementsApp <fully qualified typename>");
+        checkLengthEquals(args.length, 1, "usage: java -jar DemoReflectionApp-11.1.0.jar  <fully qualified typename>");
 
         try {
             printDeclaredMetaData(Class.forName(args[0]));
