@@ -3,9 +3,11 @@ package com.karandev.io.util.console;
 import com.karandev.io.util.console.annotation.Command;
 import com.karandev.io.util.console.annotation.ErrorCommand;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public final class CommandPrompt {
     private Object m_regObject;
@@ -88,16 +90,48 @@ public final class CommandPrompt {
         return true;
     }
 
-    private void runCommands(String [] cmdInfo)
+    private void runCommands(String [] cmdInfo) throws InvocationTargetException, IllegalAccessException //[x, a, b, c]
     {
-        throw new UnsupportedOperationException("Not yet implemented");
+        var params = Arrays.copyOfRange(cmdInfo, 1, cmdInfo.length); //ilk arguman (x) hariç diğerlerinden bir String [] elde ettim
+        var flag = false;
+        var argsFlag = false;
+
+        for (var commandInfo : m_commandInfo) {
+
+            if (commandInfo.commandText.equals(cmdInfo[0])) {
+                flag = true;
+                argsFlag = true;
+
+                if (commandInfo.argCount != params.length) { // evet komutu buldum ama parametre sayısı doğru mu ona bakıyoruz
+                    argsFlag = false;
+                    continue;
+                }
+                // yukarıdaki koşullardan geçti isek artık metodu çağırabiliriz demektir
+                commandInfo.method.setAccessible(true); //private a erişebilmek için yaptık
+                commandInfo.method.invoke(m_regObject, (Object[]) params); //eğer static bir metodu çağırıyorsak 1. parametresi hangi nesne için çağıracağımız içindir,
+                commandInfo.method.setAccessible(false);
+                break;
+            }
+        }
+        //komutu bulamazsak
+        if (!flag) {
+            if (m_errorCommandMethod != null) {
+                m_errorCommandMethod.setAccessible(true);
+                m_errorCommandMethod.invoke(m_regObject);
+                m_errorCommandMethod.setAccessible(false);
+            }
+            else
+                Console.Error.writeLine(m_invalidCommand);
+        }
+        else if (!argsFlag)
+            Console.Error.writeLine(m_wrongNumberOfArgumentsMessage);
     }
 
-    private void register(Command [] commands, Method method)
+    private void registerCommands(Command [] commands, Method method)
     {
         for (var command : commands) {
             var value = command.value();
-            var commandText = value.isBlank() ? method.getName() : value; // bu sayede sample da method ismi ile de çağırabileceğiz
+            var commandText = value.isBlank() ? method.getName() : value;
             var parameters = method.getParameters();
 
             if (!areAllString(parameters))
@@ -124,7 +158,7 @@ public final class CommandPrompt {
                     m_errorCommandMethod = method;
                 continue;
             }
-            register(commands, method);
+            registerCommands(commands, method);
         }
     }
 
