@@ -7,15 +7,15 @@ import com.karandev.io.util.console.annotation.ErrorCommand;
 
 public class CommandsInfo {
 
-    @Command("upp") //bu metod upp ismi ile çağırılabilecek
-    @Command //hiçbir value vermezsek metod ismi ile de çağırılabilecek
+    @Command("upp")
+    @Command
     private void upper(String str)
     {
         Console.writeLine(str.toUpperCase());
     }
 
-    @Command("low") //bu metod low ismi ile çağırılabilecek
-    @Command //hiçbir value vermezsek metod ismi ile de çağırılabilecek
+    @Command("low")
+    @Command
     private void lower(String str)
     {
         Console.writeLine(str.toLowerCase());

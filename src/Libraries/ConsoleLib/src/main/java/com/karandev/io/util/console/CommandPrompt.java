@@ -90,30 +90,28 @@ public final class CommandPrompt {
         return true;
     }
 
-    private void runCommands(String [] cmdInfo) throws InvocationTargetException, IllegalAccessException //[x, a, b, c]
+    private void runCommands(String [] cmdInfo) throws InvocationTargetException, IllegalAccessException
     {
-        var params = Arrays.copyOfRange(cmdInfo, 1, cmdInfo.length); //ilk arguman (x) hariç diğerlerinden bir String [] elde ettim
+        var params = Arrays.copyOfRange(cmdInfo, 1, cmdInfo.length);
         var flag = false;
         var argsFlag = false;
 
         for (var commandInfo : m_commandInfo) {
-
             if (commandInfo.commandText.equals(cmdInfo[0])) {
                 flag = true;
                 argsFlag = true;
 
-                if (commandInfo.argCount != params.length) { // evet komutu buldum ama parametre sayısı doğru mu ona bakıyoruz
+                if (commandInfo.argCount != params.length) {
                     argsFlag = false;
                     continue;
                 }
-                // yukarıdaki koşullardan geçti isek artık metodu çağırabiliriz demektir
-                commandInfo.method.setAccessible(true); //private a erişebilmek için yaptık
-                commandInfo.method.invoke(m_regObject, (Object[]) params); //eğer static bir metodu çağırıyorsak 1. parametresi hangi nesne için çağıracağımız içindir,
+
+                commandInfo.method.setAccessible(true);
+                commandInfo.method.invoke(m_regObject, (Object[]) params);
                 commandInfo.method.setAccessible(false);
                 break;
             }
         }
-        //komutu bulamazsak
         if (!flag) {
             if (m_errorCommandMethod != null) {
                 m_errorCommandMethod.setAccessible(true);
