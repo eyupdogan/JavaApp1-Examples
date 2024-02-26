@@ -170,6 +170,11 @@ public final class CommandPrompt {
         return new Builder();
     }
 
+    public void setPrompt(String prompt) // kullanıcı prompt u tekrar değiştirebilsin
+    {
+        m_prompt = prompt;
+    }
+
     public void run() // sonsuz döngüye aldık gerçek cmd uygulamaları da bu şekilde
     {
         try {

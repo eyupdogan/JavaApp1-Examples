@@ -1,6 +1,6 @@
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/ErrorCommand.java
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/Console.java
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/CommandLineArgs.java
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/Command.java
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/Commands.java
-/Users/admin/Desktop/IT/02-Java/JavaApp1-Examples/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/CommandPrompt.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/Command.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/CommandLineArgs.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/Commands.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/CommandPrompt.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/annotation/ErrorCommand.java
+/Users/admin/Desktop/IT/02-Java/02-JavaApp1/src/Libraries/ConsoleLib/src/main/java/com/karandev/io/util/console/Console.java
