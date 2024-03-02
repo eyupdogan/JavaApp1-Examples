@@ -27,3 +27,17 @@ class Application {
     }
 }
 
+
+class Sample {
+
+
+    public void foo(int a, int b)
+    {
+        //...
+    }
+
+    public void foo(this)
+    {
+
+    }
+}
