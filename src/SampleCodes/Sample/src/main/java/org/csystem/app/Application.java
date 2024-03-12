@@ -2,42 +2,37 @@
 package org.csystem.app;
 
 
-import com.karandev.io.util.console.CommandPrompt;
+import com.karandev.io.util.console.Console;
+import org.csystem.generator.random.RandomIntGenerator;
+import org.csystem.util.numeric.NumberUtil;
+
+import java.util.InputMismatchException;
+import java.util.Random;
 
 class Application {
     public static void run(String[] args)
     {
-        java.util.Scanner kb = new java.util.Scanner(System.in);
-
+        var random = new Random();
         while (true) {
-            System.out.print("Bir sayı giriniz:");
-            int a = Integer.parseInt(kb.nextLine());
-            long b;
+            try {
+                var count = Console.readUInt("Input count:");
+                if (count == 0)
+                    break;
 
-            b = a;
+                var min = Console.readUInt("Input origin:");
+                var bound = Console.readUInt("Input bound:");
+                var generator = RandomIntGenerator.of(random, min, bound, count);
+                var optInt = generator.findFirst(NumberUtil::isPrime);
+                //var value = optInt.orElseThrow(InputMismatchException::new);
+                var value = optInt.orElseGet(() -> random.nextInt(-99, 0));
 
-            System.out.printf("a = %d%n", a);
-            System.out.printf("a = %08X%n",a);
-            System.out.printf("b = %d%n", b);
-            System.out.printf("b = %016X%n", b);
-
-            if (a == 0)
-                break;
+                Console.writeLine("Value:%d", value);
+            }
+            catch (InputMismatchException ex) {
+                Console.writeLine("No prime number found!...");
+            }
         }
     }
 }
 
 
-class Sample {
-
-
-    public void foo(int a, int b)
-    {
-        //...
-    }
-
-    public void foo(this)
-    {
-
-    }
-}
